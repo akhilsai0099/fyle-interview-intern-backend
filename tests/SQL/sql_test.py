@@ -97,4 +97,5 @@ def test_get_grade_A_assignments_for_teacher_with_max_grading():
 
     # Execute the SQL query again and check if the count matches the newly created assignments
     sql_result = db.session.execute(text(sql)).fetchall()
+    print(f"sql_result:{sql_result}")
     assert grade_a_count_2 == sql_result[0][0]
