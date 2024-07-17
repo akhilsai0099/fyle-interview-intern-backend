@@ -5,7 +5,7 @@ from core.apis import decorators
 from core.apis.responses import APIResponse
 from core.models.assignments import Assignment
 
-from .schema import AssignmentGradeSchema, AssignmentSchema, TeacherSchema
+from .schema import AssignmentGradeSchema, AssignmentSchema
 principal_assignments_resources = Blueprint('principal_assignments_resources', __name__)
 
 
@@ -18,15 +18,6 @@ def list_assignments(p):
     students_assignments_dump = AssignmentSchema().dump(students_assignments, many=True)
     return APIResponse.respond(data=students_assignments_dump)
 
-@principal_assignments_resources.route('/teachers', methods=['GET'], strict_slashes=False)
-@decorators.authenticate_principal
-def list_teachers(p):
-    """Returns list of Teachers"""
-    teachers = Teacher.get_all_teachers()
-    print(teachers)
-    
-    teachers_dump = TeacherSchema().dump(teachers, many=True)
-    return APIResponse.respond(data=teachers_dump)
 
 @principal_assignments_resources.route('/assignments/grade', methods=['POST'], strict_slashes=False)
 @decorators.accept_payload
