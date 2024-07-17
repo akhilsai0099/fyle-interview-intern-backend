@@ -1,5 +1,4 @@
 from core import db
-from core.models.teachers import Teacher 
 from flask import Blueprint
 from core.apis import decorators
 from core.apis.responses import APIResponse
@@ -34,3 +33,4 @@ def grade_assignment(p, incoming_payload):
     db.session.commit()
     graded_assignment_dump = AssignmentSchema().dump(graded_assignment)
     return APIResponse.respond(data=graded_assignment_dump)
+
