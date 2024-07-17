@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    image: fyle-assignment:latest
+    container_name: fyle-assignment_container
+    ports:
+      - "7755:7755"
+    command: ["bash", "run.sh"]
+    user: "app"
+    
