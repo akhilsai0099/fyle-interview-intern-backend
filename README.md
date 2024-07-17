@@ -27,6 +27,16 @@ You will hear back within 48 hours from us via email.
 
 1. Fork this repository to your github account
 2. Clone the forked repository and proceed with steps mentioned below
+   
+# Docker Installation
+**Make sure that docker is installed in your computer if not follow manual installation.**
+
+```
+cd fyle-interview-intern-backend
+docker compose up
+```
+
+# Manual Installation
 
 ### Install requirements
 
@@ -56,3 +66,5 @@ pytest -vvv -s tests/
 # pytest --cov
 # open htmlcov/index.html
 ```
+
+
